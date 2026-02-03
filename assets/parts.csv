@@ -1,0 +1,324 @@
+code,nameEn,nameSi,page,parent
+GEN,General Information,සාමාන්‍ය තොරතුරු,11,
+GEN-A,WARNING / CAUTION / NOTE,අවවාදයයි / සැලකිලිමත් වන්න / සටහන,12,GEN
+GEN-B,General Precautions,පොදු පූර්වාරක්ෂාවන්,12,GEN
+GEN-C,SUZUKI TU250X (’09-model),SUZUKI TU250X (’09-මෝඩලය),14,GEN
+GEN-D,Serial Number Location,අනුක්‍රමික අංකය ස්ථානය,14,GEN
+GEN-E,Fuel and Oil Recommendation,ඉන්ධන සහ තෙල් නිර්දේශ,15,GEN
+GEN-F,Fuel,ඉන්ධන,15,GEN
+GEN-G,Engine Oil,එන්ජින් තෙල්,15,GEN
+GEN-H,Brake Fluid,බ්‍රේක් දියරය,15,GEN
+GEN-I,Front Fork Oil,ඉදිරි ෆෝක් තෙල්,15,GEN
+GEN-J,Break-in Procedures,බ්‍රේක්-ඉන් ක්‍රමවේද,15,GEN
+GEN-K,Information Labels,තොරතුරු ලේබල,16,GEN
+GEN-L,Specifications,විශේෂාංග,17,GEN
+GEN-M,Dimensions and Curb Mass,ප්‍රමාණ සහ යටිතල බර,17,GEN
+GEN-N,Engine,එන්ජිම,17,GEN
+GEN-O,Drive Train,ඩ්‍රයිව් ට්‍රේන්,17,GEN
+GEN-P,Chassis,චැසි,18,GEN
+GEN-Q,Electrical,විදුලි,18,GEN
+GEN-R,Capacities,ධාරිතා,18,GEN
+PM,Periodic Maintenance,කාලානුරූප නඩත්තු කිරීම,19,
+PM-A,Periodic Maintenance Schedule,කාලානුරූප නඩත්තු උපදෙස්,20,PM
+PM-B,Periodic Maintenance Chart,කාලානුරූප නඩත්තු සටහන,20,PM
+PM-C,Lubrication Points,ලිහිසි ස්ථාන,21,PM
+PM-D,Maintenance and Tune-up Procedures,නඩත්තු සහ ටියුන්-අප් ක්‍රමවේද,22,PM
+PM-E,Air Cleaner,ගාලන පිරිසිදුකරු,22,PM
+PM-F,Valve Clearance,වాల්ව් පරතරය,23,PM
+PM-G,Spark Plug,ස්පාර්ක් ප්ලග්,25,PM
+PM-H,Throttle Cable Play,ත්‍රොටල් කේබල් ප්ලේ,26,PM
+PM-I,Engine Idle Speed,එන්ජිම අයිඩල් වේගය,26,PM
+PM-J,Fuel Line,ඉන්ධන රේඛාව,27,PM
+PM-K,Clutch Cable Play,ක්ලච් කේබල් ප්ලේ,27,PM
+PM-L,Pair (Air Supply) System,PAIR (ගාලන සැපයුම්) පද්ධතිය,27,PM
+PM-M,Engine Oil and Oil Filter,එන්ජින් තෙල් සහ තෙල් පෙරීම,28,PM
+PM-N,Drive Chain,ඩ්‍රයිව් චේන්,29,PM
+PM-O,Brakes,බ්‍රේක්,32,PM
+PM-P,Steering,ස්ටියරින්,36,PM
+PM-Q,Tires,ටයර්,37,PM
+PM-R,Front Fork,ඉදිරි ෆෝක්,38,PM
+PM-S,Rear Suspension,පසුබැසී සස්පෙන්ෂන්,38,PM
+PM-T,Exhaust Pipe Bolts and Muffler Mounting Bolts,නිස්සාරක නල බෝල්ට් සහ මෆලර් සවි බෝල්ට්,39,PM
+PM-U,Chassis Bolts and Nuts,චැසි බෝල්ට් සහ නට්,40,PM
+PM-V,Compression Pressure Check,සම්පීඩන පීඩන පරීක්ෂාව,42,PM
+PM-W,Compression Test Procedure,සම්පීඩන පරීක්ෂා ක්‍රමවේදය,42,PM
+PM-X,Oil Pressure Check,තෙල් පීඩන පරීක්ෂාව,43,PM
+PM-Y,Oil Pressure Test Procedure,තෙල් පීඩන පරීක්ෂා ක්‍රමවේදය,43,PM
+PM-Z,SDS Check,SDS පරීක්ෂාව,44,PM
+ENG,Engine,එන්ජිම,48,
+ENG-A,Engine Components Removable With Engine In Place,එන්ජිම ස්ථානයේදීම ඉවත් කළ හැකි එන්ජින් සංඝටක,49,ENG
+ENG-B,Engine Removal And Installation,එන්ජින් ඉවත් කිරීම සහ ස්ථාපනය,50,ENG
+ENG-C,Removal,ඉවත් කිරීම,50,ENG
+ENG-D,Installation,ස්ථාපනය,55,ENG
+ENG-E,Engine Disassembly,එන්ජිම විවෘත කිරීම,58,ENG
+ENG-F,Engine Components Inspection And Service,එන්ජින් සංඝටක පරීක්ෂාව සහ සේවාව,72,ENG
+ENG-G,Cylinder Head Cover,සිලින්ඩර් හෙඩ් කවර්,72,ENG
+ENG-H,Cylinder Head,සිලින්ඩර් හෙඩ්,73,ENG
+ENG-I,Camshaft,කැම්ෂාෆ්ට්,82,ENG
+ENG-J,Cylinder,සිලින්ඩර්,82,ENG
+ENG-K,Piston,පිස්ටන්,83,ENG
+ENG-L,Conrod And Crankshaft,කොන්රොඩ් සහ ක්‍රැන්ක්ෂාෆ්ට්,85,ENG
+ENG-M,Starter Clutch And Starter Driven Gear Bearing,ස්ටාර්ටර් ක්ලච් සහ ස්ටාර්ටර් ඩ්‍රයිව් ගියර් බෙයාරින්,87,ENG
+ENG-N,Balancer Driven Gear,බැලන්සර් ඩ්‍රයිව් ගියර්,88,ENG
+ENG-O,Generator,ජෙනරේටරය,89,ENG
+ENG-P,Gearshift Shaft,ගියර්ෂිෆ්ට් ශාෆ්ට්,89,ENG
+ENG-Q,Oil Filter,තෙල් පෙරීම,90,ENG
+ENG-R,Oil Strainer,තෙල් සෝදනය,90,ENG
+ENG-S,Oil Pump,තෙල් පම්පය,91,ENG
+ENG-T,Transmission,ට්‍රාන්ස්මිෂන්,92,ENG
+ENG-U,Clutch,ක්ලච්,95,ENG
+ENG-V,Crankcase Bearing And Oil Seal,ක්‍රැන්ක්කේස් බෙයාරින් සහ තෙල් මුද්‍රාව,96,ENG
+ENG-W,Clutch Release Camshaft,ක්ලච් රිලීස් කැම්ෂාෆ්ට්,101,ENG
+ENG-X,Clutch Cover,ක්ලච් කවර්,102,ENG
+ENG-Y,Engine Reassembly,එන්ජිම නැවත එකලස් කිරීම,103,ENG
+FI,FI System Diagnosis,FI පද්ධති විශ්ලේෂණය,122,
+FI-A,Precautions In Servicing,සේවාවේදී පූර්වාරක්ෂාවන්,124,FI
+FI-B,Electrical Parts,විදුලි කොටස්,124,FI
+FI-C,Fuse,ෆියුස්,125,FI
+FI-D,Switch,ස්විච්,125,FI
+FI-E,ECM/Various Sensors,ECM/විවිධ සංවේදක,125,FI
+FI-F,Electrical Circuit Inspection Procedure,විදුලි පරිපථ පරීක්ෂා කිරීමේ ක්‍රමවේදය,127,FI
+FI-G,Using The Multi Circuit Tester,බහු පරිපථ ටෙස්ටරය භාවිතය,130,FI
+FI-H,FI System Technical Features,FI පද්ධති තාක්ෂණික විශේෂාංග,131,FI
+FI-I,Injection Time (Injection Volume),ඉන්ජෙක්ෂන් වේලාව (ඉන්ජෙක්ෂන් පරිමාව),131,FI
+FI-J,Compensation Of Injection Time (Volume),ඉන්ජෙක්ෂන් වේලාව (පරිමාව) පිළිගැනීම,132,FI
+FI-K,Injection Stop Control,ඉන්ජෙක්ෂන් නවතීම පාලනය,132,FI
+FI-L,FI System Parts Location,FI පද්ධති කොටස් ස්ථානය,133,FI
+FI-M,FI System Wiring Diagram,FI පද්ධති වයරිං රූපසටහන,134,FI
+FI-N,ECM Terminal,ECM ටර්මිනලය,135,FI
+FI-O,Self-Diagnosis Function,ස්වයං විනිශ්චය ක්‍රියාවලිය,136,FI
+FI-P,User Mode,පරිශීලක මෝඩ්,136,FI
+FI-Q,Dealer Mode,වෙළඳ මෝඩ්,137,FI
+FI-R,Fail-Safe Function,ෆේල්-සේෆ් ක්‍රියාවලිය,138,FI
+FI-S,FI System Troubleshooting,FI පද්ධති දෝෂ සෙවීම,139,FI
+FI-T,Self-Diagnostic Procedures,ස්වයං විනිශ්චය ක්‍රමවේද,141,FI
+FI-U,Use Of SDS Diagnostic Procedures,SDS විනිශ්චය ක්‍රමවේද භාවිතය,144,FI
+FI-V,Use Of SDS Diagnosis Reset Procedure,SDS විනිශ්චය යළි පිහිටුවීමේ ක්‍රමවේදය,145,FI
+FI-W,Show Data When Trouble,දෝෂයකදී දත්ත පෙන්වන්න,146,FI
+FI-X,Malfunction Code And Defective Condition,දෝෂ කේතය සහ දෝෂ ස්ථිතිය,147,FI
+FI-Y,12 (P0335) CKP Sensor Circuit Malfunction,12 (P0335) CKP සන්සුන් පරිපථ දෝෂය,150,FI
+FI-Z,13 (P0105-H/L) IAP Sensor Circuit Malfunction,13 (P0105-H/L) IAP සන්සුන් පරිපථ දෝෂය,152,FI
+FI-AA,14 (P0120-H/L) TP Sensor Circuit Malfunction,14 (P0120-H/L) TP සන්සුන් පරිපථ දෝෂය,157,FI
+FI-AB,15 (P0115-H/L) ET Sensor Circuit Malfunction,15 (P0115-H/L) ET සන්සුන් පරිපථ දෝෂය,162,FI
+FI-AC,21 (P0110-H/L) IAT Sensor Circuit Malfunction,21 (P0110-H/L) IAT සන්සුන් පරිපථ දෝෂය,166,FI
+FI-AD,23 (P1651-H/L) TO Sensor Circuit Malfunction,23 (P1651-H/L) TO සන්සුන් පරිපථ දෝෂය,170,FI
+FI-AE,24 (P0351) Ignition System Malfunction,24 (P0351) ඉග්නිෂන් පද්ධති දෝෂය,173,FI
+FI-AF,28 (P1655) STV Actuator Circuit Malfunction,28 (P1655) STV ඇක්චුවේටර් පරිපථ දෝෂය,174,FI
+FI-AG,29 (P1654-H/L) STP Sensor Circuit Malfunction,29 (P1654-H/L) STP සන්සුන් පරිපථ දෝෂය,177,FI
+FI-AH,32 (P0201) Fuel Injector Circuit Malfunction,32 (P0201) ඉන්ධන ඉන්ජෙක්ටර් පරිපථ දෝෂය,181,FI
+FI-AI,41 (P0230-H/L) FP Circuit Malfunction,41 (P0230-H/L) FP පරිපථ දෝෂය,183,FI
+FI-AJ,42 (P01650) IG Switch Circuit Malfunction,42 (P01650) IG ස්විච් පරිපථ දෝෂය,184,FI
+FI-AK,44 (P0130) HO2 Sensor (HO2S) Circuit Malfunction,44 (P0130) HO2 සන්සුන් (HO2S) පරිපථ දෝෂය,185,FI
+FI-AL,49 (P1656) Pair Control Solenoid Valve Circuit Malfunction,49 (P1656) PAIR පාලන සොලිනොයිඩ් වාල්ව් පරිපථ දෝෂය,187,FI
+FI-AM,Sensors,සංවේදක,189,FI
+FI-AN,CKP Sensor Inspection,CKP සංවේදක පරීක්ෂාව,189,FI
+FI-AO,CKP Sensor Removal And Installation,CKP සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,189,FI
+FI-AP,IAP Sensor Inspection,IAP සංවේදක පරීක්ෂාව,189,FI
+FI-AQ,IAP Sensor Removal And Installation,IAP සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,189,FI
+FI-AR,TP Sensor Inspection,TP සංවේදක පරීක්ෂාව,189,FI
+FI-AS,TP Sensor Removal And Installation,TP සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,189,FI
+FI-AT,TPS Adjustment,TPS සකස් කිරීම,190,FI
+FI-AU,ET Sensor Inspection,ET සංවේදක පරීක්ෂාව,191,FI
+FI-AV,ET Sensor Removal And Installation,ET සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,70,FI
+FI-AW,IAT Sensor Inspection,IAT සංවේදක පරීක්ෂාව,191,FI
+FI-AX,IAT Sensor Removal And Installation,IAT සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,191,FI
+FI-AY,TO Sensor Inspection,TO සංවේදක පරීක්ෂාව,192,FI
+FI-AZ,TO Sensor Removal And Installation,TO සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,192,FI
+FI-BA,STP Sensor Inspection,STP සංවේදක පරීක්ෂාව,192,FI
+FI-BB,STP Sensor Removal And Installation,STP සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,192,FI
+FI-BC,STP Sensor Adjustment,STP සංවේදක සකස් කිරීම,192,FI
+FI-BD,HO2 Sensor Inspection,HO2 සංවේදක පරීක්ෂාව,192,FI
+FI-BE,HO2 Sensor Removal And Installation,HO2 සංවේදක ඉවත් කිරීම සහ ස්ථාපනය,193,FI
+FU,Fuel System & Throttle Body,ඉන්ධන පද්ධතිය සහ ත්‍රොටල් බොඩි,194,
+FU-A,Fuel Delivery System,ඉන්ධන සැපයුම් පද්ධතිය,195,FU
+FU-B,Fuel System,ඉන්ධන පද්ධතිය,196,FU
+FU-C,Fuel Tank Removal,ඉන්ධන ටැංකිය ඉවත් කිරීම,196,FU
+FU-D,Fuel Tank Installation,ඉන්ධන ටැංකිය ස්ථාපනය,196,FU
+FU-E,Fuel Pressure Inspection,ඉන්ධන පීඩන පරීක්ෂාව,197,FU
+FU-F,Fuel Pump Inspection,ඉන්ධන පම්පය පරීක්ෂාව,198,FU
+FU-G,Fuel Discharge Amount Inspection,ඉන්ධන නිකාය ප්‍රමාණ පරීක්ෂාව,198,FU
+FU-H,Fuel Pump Construction,ඉන්ධන පම්පය සම්ප්‍රදානය,199,FU
+FU-I,Fuel Pump Removal And Disassembly,ඉන්ධන පම්පය ඉවත් කිරීම සහ විවෘත කිරීම,200,FU
+FU-J,Fuel Mesh Filter Inspection,ඉන්ධන ජාල පෙරීම පරීක්ෂාව,201,FU
+FU-K,Fuel Pump Reassembly And Installation,ඉන්ධන පම්පය නැවත එකලස් කිරීම සහ ස්ථාපනය,202,FU
+FU-L,Throttle Body,ත්‍රොටල් බොඩි,203,FU
+FU-M,Construction,සම්ප්‍රදානය,203,FU
+FU-N,Throttle Body Removal,ත්‍රොටල් බොඩි ඉවත් කිරීම,204,FU
+FU-O,Throttle Body Disassembly,ත්‍රොටල් බොඩි විවෘත කිරීම,205,FU
+FU-P,Throttle Body Cleaning,ත්‍රොටල් බොඩි පිරිසිදු කිරීම,207,FU
+FU-Q,Throttle Body Inspection,ත්‍රොටල් බොඩි පරීක්ෂාව,207,FU
+FU-R,Throttle Body Reassembly,ත්‍රොටල් බොඩි නැවත එකලස් කිරීම,208,FU
+FU-S,Throttle Body Installation,ත්‍රොටල් බොඩි ස්ථාපනය,210,FU
+FU-T,STP Sensor Adjustment,STP සංවේදක සකස් කිරීම,211,FU
+FU-U,Fast Idle,වේග අයිඩල්,212,FU
+FU-V,Fuel Injector Removal,ඉන්ධන ඉන්ජෙක්ටර් ඉවත් කිරීම,212,FU
+FU-W,Fuel Injector Inspection,ඉන්ධන ඉන්ජෙක්ටර් පරීක්ෂාව,212,FU
+FU-X,Fuel Injector Installation,ඉන්ධන ඉන්ජෙක්ටර් ස්ථාපනය,212,FU
+EX,Exhaust System,නිස්සාරක පද්ධතිය,213,
+EX-A,Exhaust System,නිස්සාරක පද්ධතිය,214,EX
+EX-B,Removal,ඉවත් කිරීම,214,EX
+EX-C,Inspection,පරීක්ෂාව,216,EX
+EX-D,Installation,ස්ථාපනය,216,EX
+CL,Cooling & Lubrication System,සිසිලන සහ ලිහිසි පද්ධතිය,219,
+CL-A,Lubrication System,ලිහිසි පද්ධතිය,220,CL
+CL-B,Oil Pressure,තෙල් පීඩනය,220,CL
+CL-C,Oil Filter,තෙල් පෙරීම,220,CL
+CL-D,Oil Strainer,තෙල් සෝදනය,220,CL
+CL-E,Oil Pump,තෙල් පම්පය,220,CL
+CL-F,Engine Lubrication System Chart,එන්ජින් ලිහිසි පද්ධති සටහන,220,CL
+CH,Chassis,චැසි,221,
+CH-A,Exterior Parts,බාහිර කොටස්,223,CH
+CH-B,Exterior Parts Removal,බාහිර කොටස් ඉවත් කිරීම,223,CH
+CH-C,Exterior Parts Installation,බාහිර කොටස් ස්ථාපනය,223,CH
+CH-D,Front Wheel,ඉදිරි රෝදය,224,CH
+CH-E,Front Wheel Construction,ඉදිරි රෝදය සම්ප්‍රදානය,224,CH
+CH-F,Front Wheel Removal,ඉදිරි රෝදය ඉවත් කිරීම,224,CH
+CH-G,Inspection And Disassembly,පරීක්ෂාව සහ විවෘත කිරීම,226,CH
+CH-H,Reassembly And Installation,නැවත එකලස් කිරීම සහ ස්ථාපනය,227,CH
+CH-I,Front Brake,ඉදිරි බ්‍රේක්,231,CH
+CH-J,Front Brake Construction,ඉදිරි බ්‍රේක් සම්ප්‍රදානය,231,CH
+CH-K,Brake Pad Replacement,බ්‍රේක් පෑඩ් ප්‍රතිස්ථාපනය,232,CH
+CH-L,Brake Fluid Replacement,බ්‍රේක් දියරය ප්‍රතිස්ථාපනය,233,CH
+CH-M,Brake Caliper Removal And Disassembly,බ්‍රේක් කැලිපර් ඉවත් කිරීම සහ විවෘත කිරීම,233,CH
+CH-N,Brake Caliper Inspection,බ්‍රේක් කැලිපර් පරීක්ෂාව,234,CH
+CH-O,Caliper Reassembly And Installation,කැලිපර් නැවත එකලස් කිරීම සහ ස්ථාපනය,235,CH
+CH-P,Brake Disc Inspection,බ්‍රේක් ඩිස්ක් පරීක්ෂාව,237,CH
+CH-Q,Master Cylinder Removal And Disassembly,මාස්ටර් සිලින්ඩර් ඉවත් කිරීම සහ විවෘත කිරීම,237,CH
+CH-R,Master Cylinder Inspection,මාස්ටර් සිලින්ඩර් පරීක්ෂාව,238,CH
+CH-S,Master Cylinder Reassembly And Installation,මාස්ටර් සිලින්ඩර් නැවත එකලස් කිරීම සහ ස්ථාපනය,239,CH
+CH-T,Handlebars,හැන්ඩල්බාර්,241,CH
+CH-U,Handlebars Construction,හැන්ඩල්බාර් සම්ප්‍රදානය,241,CH
+CH-V,Handlebars Removal,හැන්ඩල්බාර් ඉවත් කිරීම,241,CH
+CH-W,Handlebars Inspection,හැන්ඩල්බාර් පරීක්ෂාව,242,CH
+CH-X,Handlebars Installation,හැන්ඩල්බාර් ස්ථාපනය,243,CH
+CH-Y,Front Fork,ඉදිරි ෆෝක්,245,CH
+CH-Z,Front Fork Construction,ඉදිරි ෆෝක් සම්ප්‍රදානය,245,CH
+CH-AA,Front Fork Removal And Disassembly,ඉදිරි ෆෝක් ඉවත් කිරීම සහ විවෘත කිරීම,246,CH
+CH-AB,Front Fork Inspection,ඉදිරි ෆෝක් පරීක්ෂාව,248,CH
+CH-AC,Front Fork Reassembly And Installation,ඉදිරි ෆෝක් නැවත එකලස් කිරීම සහ ස්ථාපනය කිරීම,249,CH
+CH-AD,Steering,ස්ටියරින්,253,CH
+CH-AE,Steering Construction,ස්ටියරින් ඉදිකිරීම්,253,CH
+CH-AF,Steering Removal And Disassembly,ස්ටියරින් ඉවත් කිරීම සහ විවෘත කිරීම,253,CH
+CH-AG,Steering Inspection,ස්ටියරින් පරීක්ෂාව,256,CH
+CH-AH,Steering Reassembly And Installation,ස්ටියරින් නැවත එකලස් කිරීම සහ ස්ථාපනය කිරීම,257,CH
+CH-AI,Rear Brake,පසුපස තිරිංග,259,CH
+CH-AJ,Rear Brake Construction,පසුපස තිරිංග ඉදිකිරීම්,259,CH
+CH-AK,Rear Brake Removal And Disassembly,පසුපස තිරිංග ඉවත් කිරීම සහ විවෘත කිරීම,259,CH
+CH-AL,Rear Brake Inspection,පසුපස තිරිංග පරීක්ෂාව,260,CH
+CH-AM,Rear Brake Reassembly And Installation,පසුපස තිරිංග නැවත එකලස් කිරීම සහ ස්ථාපනය,261,CH
+CH-AN,Rear Brake Pedal Removal,පසුපස බ්‍රේක් පීඩනය ඉවත් කිරීම,262,CH
+CH-AO,Rear Brake Pedal Installation,පසුපස බ්‍රේක් පීඩනය ස්ථාපනය,262,CH
+CH-AP,Rear Shock Absorber,පසුපස සොක් අවශෝෂකය,263,CH
+CH-AQ,Rear Shock Absorber Construction,පසුපස සොක් සම්ප්‍රදානය,263,CH
+CH-AR,Rear Shock Absorber Removal,පසුපස සොක් ඉවත් කිරීම,263,CH
+CH-AS,Rear Shock Absorber Inspection,පසුපස සොක් පරීක්ෂාව,264,CH
+CH-AT,Rear Shock Absorber Installation,පසුපස සොක් ස්ථාපනය,264,CH
+CH-AU,Rear Suspension Setting,පසුපස සස්පෙන්ෂන් සැකසුම,264,CH
+CH-AV,Rear Wheel,පසුපස රෝදය,265,CH
+CH-AW,Rear Wheel Construction,පසුපස රෝදය සම්ප්‍රදානය,265,CH
+CH-AX,Rear Wheel Removal,පසුපස රෝදය ඉවත් කිරීම,266,CH
+CH-AY,Rear Wheel Inspection And Disassembly,පසුපස රෝදය පරීක්ෂාව සහ විවෘත කිරීම,268,CH
+CH-AZ,Rear Wheel Reassembly And Installation,පසුපස රෝදය නැවත එකලස් කිරීම සහ ස්ථාපනය,270,CH
+CH-BA,Swingarm,ස්වින්ගාම්,273,CH
+CH-BB,Swingarm Construction,ස්වින්ගාම් සම්ප්‍රදානය,273,CH
+CH-BC,Swingarm Removal,ස්වින්ගාම් ඉවත් කිරීම,274,CH
+CH-BD,Swingarm Inspection And Disassembly,ස්වින්ගාම් පරීක්ෂාව සහ විවෘත කිරීම,275,CH
+CH-BE,Swingarm Reassembly,ස්වින්ගාම් නැවත එකලස් කිරීම,276,CH
+CH-BF,Swingarm Installation,ස්වින්ගාම් ස්ථාපනය,278,CH
+CH-BG,Tire And Wheel,ටයර් සහ රෝදය,279,CH
+CH-BH,Tire Removal,ටයර් ඉවත් කිරීම,279,CH
+CH-BI,Inspection,පරීක්ෂාව,279,CH
+CH-BJ,Tire Installation,ටයර් ස්ථාපනය,280,CH
+EL,Electrical System,විදුලි පද්ධතිය,282,
+EL-A,Precautions In Servicing,සේවාවේදී පූර්වාරක්ෂාවන්,283,EL
+EL-B,Connector,කනෙක්ටරය,283,EL
+EL-C,Coupler,කප්ලර්,283,EL
+EL-D,Clamp,ක්ලැම්ප්,283,EL
+EL-E,Fuse,ෆියුස්,283,EL
+EL-F,Switch,ස්විච්,284,EL
+EL-G,Semi-Conductor Equipped Part,සෙමි-කන්ඩක්ටර් සන්ධාන කොටස,284,EL
+EL-H,Battery,බැටරිය,284,EL
+EL-I,Connecting The Battery,බැටරිය සම්බන්ධ කිරීම,284,EL
+EL-J,Electrical System Wiring Procedure,විදුලි පද්ධති වයරිං ක්‍රමවේදය,285,EL
+EL-K,Using The Multi Circuit Tester,බහු පරිපථ ටෙස්ටරය භාවිතය,285,EL
+EL-L,Location Of Electrical Components,විදුලි කොටස් ස්ථාන,286,EL
+EL-M,Charging System,චාර්ජිං පද්ධතිය,288,EL
+EL-N,Electrical System Troubleshooting,විදුලි පද්ධති දෝෂ සෙවීම,288,EL
+EL-O,Electrical System Inspection,විදුලි පද්ධති පරීක්ෂාව,289,EL
+EL-P,Starter System And Side-Stand/Ignition Interlock System,ස්ටාර්ටර් පද්ධතිය සහ සයිඩ්-ස්ටෑන්ඩ්/ඉග්නිෂන් ඉන්ටර්ලොක් පද්ධතිය,292,EL
+EL-Q,Troubleshooting,දෝෂ සෙවීම,292,EL
+EL-R,Starter Motor Removal,ස්ටාර්ටර් මෝටරය ඉවත් කිරීම,293,EL
+EL-S,Starter Motor Disassembly,ස්ටාර්ටර් මෝටරය විවෘත කිරීම,294,EL
+EL-T,Starter Motor Inspection,ස්ටාර්ටර් මෝටරය පරීක්ෂාව,295,EL
+EL-U,Starter Motor Reassembly,ස්ටාර්ටර් මෝටරය නැවත එකලස් කිරීම,296,EL
+EL-V,Starter Motor Installation,ස්ටාර්ටර් මෝටරය ස්ථාපනය,297,EL
+EL-W,Starter Relay Inspection,ස්ටාර්ටර් රිලේ පරීක්ෂාව,298,EL
+EL-X,Side Stand/Ignition Interlock System Parts Inspection,සයිඩ් ස්ටෑන්ඩ්/ඉග්නිෂන් ඉන්ටර්ලොක් පද්ධති කොටස් පරීක්ෂාව,299,EL
+EL-Y,Ignition System,ඉග්නිෂන් පද්ධතිය,301,EL
+EL-Z,Ignition System Troubleshooting,ඉග්නිෂන් පද්ධති දෝෂ සෙවීම,302,EL
+EL-AA,Ignition System Inspection,ඉග්නිෂන් පද්ධති පරීක්ෂාව,303,EL
+EL-AB,Speedometer,ස්පීඩෝමීටරය,306,EL
+EL-AC,Speedometer Removal And Disassembly,ස්පීඩෝමීටරය ඉවත් කිරීම සහ විවෘත කිරීම,306,EL
+EL-AD,Speedometer Inspection,ස්පීඩෝමීටරය පරීක්ෂාව,307,EL
+EL-AE,Lamps,ලැම්පු,310,EL
+EL-AF,Headlight,හෙඩ්ලයිට්,310,EL
+EL-AG,Brake Light/Taillight,බ්‍රේක් ලයිට්/ටෙල්ලයිට්,312,EL
+EL-AH,Turn Signal Light,ටර්න් සිග්නල් ලයිට්,313,EL
+EL-AI,Relays,රිලේ,314,EL
+EL-AJ,Turn Signal/Side-Stand Relay,ටර්න් සිග්නල්/සයිඩ්-ස්ටෑන්ඩ් රිලේ,314,EL
+EL-AK,Main Relay,මුල් රිලේ,314,EL
+EL-AL,Check Relay,චෙක් රිලේ,314,EL
+EL-AM,Switch,ස්විච්,315,EL
+EL-AN,Ignition Switch Removal,ඉග්නිෂන් ස්විච් ඉවත් කිරීම,315,EL
+EL-AO,Ignition Switch Installation,ඉග්නිෂන් ස්විච් ස්ථාපනය,315,EL
+EL-AP,Switch Inspection,ස්විච් පරීක්ෂාව,316,EL
+EL-AQ,Battery,බැටරිය,317,EL
+EL-AR,Battery Specifications,බැටරි විශේෂාංග,317,EL
+EL-AS,Battery Initial Charging,බැටරි ආරම්භක ආරෝපණය,317,EL
+EL-AT,Battery Servicing,බැටරි සේවා කටයුතු,319,EL
+EL-AU,Battery Recharging Operation,බැටරි නැවත ආරෝපණ ක්‍රියාවලිය,319,EL
+SV,Servicing Information,සේවා තොරතුරු,321,
+SV-A,Troubleshooting,දෝෂ සෙවීම,322,SV
+SV-B,Troubleshooting FI System Malfunction Code And Defective Condition,FI පද්ධති දෝෂ කේතය සහ දෝෂ ස්ථිතිය දෝෂ සෙවීම,322,SV
+SV-C,Troubleshooting Engine,එන්ජිම දෝෂ සෙවීම,322,SV
+SV-D,Troubleshooting Chassis,චැසි දෝෂ සෙවීම,328,SV
+SV-E,Troubleshooting Brakes,බ්‍රේක් දෝෂ සෙවීම,329,SV
+SV-F,Troubleshooting Electrical,විදුලි දෝෂ සෙවීම,330,SV
+SV-G,Troubleshooting Battery,බැටරි දෝෂ සෙවීම,331,SV
+SV-H,Wiring Harness Cable And Hose Routing,වයරින් හාර්නස් කේබල් සහ හෝස් රූටින්,332,SV
+SV-I,Wiring Harness Routing,වයරින් හාර්නස් රූටින්,332,SV
+SV-J,Throttle Cable Routing,ත්‍රොටල් කේබල් රූටින්,335,SV
+SV-K,Speedometer Cable Routing,ස්පීඩෝමීටර් කේබල් රූටින්,336,SV
+SV-L,Front Brake Hose Routing,ඉදිරි බ්‍රේක් හෝස් රූටින්,337,SV
+SV-M,Pair (Air Supply) System Hose Routing,PAIR (ගාලන සැපයුම්) පද්ධති හෝස් රූටින්,338,SV
+SV-N,Cylinder Head Rubber Pad Installation,සිලින්ඩර් හෙඩ් රබර් පෑඩ් ස්ථාපනය,339,SV
+SV-O,Exhaust System Construction,නිස්සාරක පද්ධති සම්ප්‍රදානය,339,SV
+SV-P,Throttle Body And Fuel Pump Installation,ත්‍රොටල් බොඩි සහ ඉන්ධන පම්පය ස්ථාපනය,340,SV
+SV-Q,Rear Brake Pedal Installation,පසුබැසී බ්‍රේක් පීඩනය ස්ථාපනය,341,SV
+SV-R,Torque Link Installation,ටෝර්ක් ලින්ක් ස්ථාපනය,341,SV
+SV-S,Side-Stand Installation,සයිඩ්-ස්ටෑන්ඩ් ස්ථාපනය,342,SV
+SV-T,Front Turn Signal Light Installation,ඉදිරි ටර්න් සිග්නල් ලයිට් ස්ථාපනය,343,SV
+SV-U,Rear Turn Signal Light Installation,පසුබැසී ටර්න් සිග්නල් ලයිට් ස්ථාපනය,343,SV
+SV-V,Special Tools,විශේෂ උපකරණ,344,SV
+SV-W,Tightening Torque,ටයිට්නිං ටෝර්ක්,347,SV
+SV-X,Tightening Torque Engine,ටයිට්නිං ටෝර්ක් එන්ජිම,347,SV
+SV-Y,Tightening Torque FI System And Intake Air System,ටයිට්නිං ටෝර්ක් FI පද්ධතිය සහ ගාලන වායු පද්ධතිය,348,SV
+SV-Z,Tightening Torque Chassis,ටයිට්නිං ටෝර්ක් චැසි,348,SV
+SV-AA,Tightening Torque Tightening Torque Chart,ටයිට්නිං ටෝර්ක් සටහන,349,SV
+SV-AB,Service Data,සේවා දත්ත,350,SV
+EC,Emission Control Information,විමෝචන පාලන තොරතුරු,359,
+EC-A,Emission Control Systems,විමෝචන පාලන පද්ධතිය,362,EC
+EC-B,Fuel Injection System,ඉන්ධන ඉන්ජෙක්ෂන් පද්ධතිය,362,EC
+EC-C,Crankcase Emission Control System,ක්‍රැන්ක්කේස් විමෝචන පාලන පද්ධතිය,363,EC
+EC-D,Exhaust Emission Control System,නිස්සාරක විමෝචන පාලන පද්ධතිය,364,EC
+EC-E,HO2 Sensor Inspection,HO2 සන්සුන් පරීක්ෂාව,365,EC
+EC-F,HO2 Sensor Removal And Installation,HO2 සන්සුන් ඉවත් කිරීම සහ ස්ථාපනය,365,EC
+EC-G,Noise Emission Control System,ශබ්ද විමෝචන පාලන පද්ධතිය,365,EC
+EC-H,PAIR (Air Supply) System And Emission Control System Inspection,PAIR (ගාලන සැපයුම්) පද්ධතිය සහ විමෝචන පාලන පද්ධතිය පරීක්ෂාව,366,EC
+EC-I,PAIR Hoses,PAIR හෝස්,366,EC
+EC-J,PAIR Reed Valve,PAIR රීඩ් වාල්ව්,366,EC
+EC-K,PCV Hose,PCV හෝස්,367,EC
+EC-L,PAIR Control Solenoid Valve,PAIR පාලන සොලිනොයිඩ් වාල්ව්,367,EC
+EC-M,PAIR (Air Supply) System Diagram,PAIR (ගාලන සැපයුම්) පද්ධති රූපසටහන,369,EC
+EC-N,PAIR (Air Supply) System Hose Routing,PAIR (ගාලන සැපයුම්) පද්ධති හෝස් රූටින්,369,EC
+WD,Wiring Diagram,වයරිං රූපසටහන,368,
