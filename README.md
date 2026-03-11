@@ -2,11 +2,11 @@
 
 A new Flutter project.
 
+<img width="414" height="716" alt="bike-manual-mainmenu" src="https://github.com/user-attachments/assets/cd8d66fe-0145-46ea-ad25-20a88f0ead5c" />
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
-
-<img width="414" height="716" alt="bike-manual-mainmenu" src="https://github.com/user-attachments/assets/cd8d66fe-0145-46ea-ad25-20a88f0ead5c" />
 
 A few resources to get you started if this is your first Flutter project:
 
