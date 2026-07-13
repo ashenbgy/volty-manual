@@ -1,20 +1,23 @@
-// lib/search_page.dart
 import 'package:flutter/material.dart';
-import 'package:csv/csv.dart';
-import 'pdf_page.dart';
-import 'part.dart';
 import 'package:flutter/services.dart';
-import 'sub_topic_page.dart';
+import 'package:csv/csv.dart';
+import 'l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'providers/settings_provider.dart';
+import 'part.dart';
+import 'widgets/glass_container.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
+
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
 
 class _SearchPageState extends State<SearchPage> {
-  List<Part> _parts = [];
-  List<Part> _filtered = [];
+  List<Part> _allParts = [];
+  List<Part> _filteredParts = [];
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -22,106 +25,170 @@ class _SearchPageState extends State<SearchPage> {
     _loadParts();
   }
 
-  void _loadParts() async {
-    final csv = await DefaultAssetBundle.of(context).loadString('assets/parts.csv');
-    debugPrint('CSV first line: ${csv.split('\n').first}');
-    final rows = const CsvToListConverter().convert(csv, eol: '\n');
-    _parts = rows.skip(1).map((r) => Part.fromCsv(r)).toList();
-    _filtered = _parts.where((p) => p.parentCode == null).toList(); // ← parents only
-    setState(() {});
-  }
-
-  void _search(String q) {
-    final query = q.toLowerCase();
-    setState(() {
-      _filtered = _parts
-          .where((p) =>
-              p.nameEn.toLowerCase().contains(query) ||
-              p.nameSi.toLowerCase().contains(query) ||
-              p.code.toLowerCase().contains(query))
-          .toList();
-    });
-  }
-
-  void _jumpToPart(Part p) {
-    final children = _parts.where((c) => c.parentCode == p.code).toList();
-    if (children.isEmpty) {                       // leaf → open PDF
-      final pageNo = p.page; 
-      Navigator.push(context,
-          MaterialPageRoute(builder: (_) => PdfPage(page: pageNo)));
-    } else {                                      // parent → show children
-      Navigator.push(context,
-          MaterialPageRoute(builder: (_) => SubTopicPage(children: children)));
+  Future<void> _loadParts() async {
+    try {
+      final rawData = await rootBundle.loadString('assets/parts.csv');
+      List<List<dynamic>> listData =
+          const CsvToListConverter().convert(rawData);
+      
+      setState(() {
+        _allParts = listData.skip(1).map((row) {
+          return Part.fromCsv(row);
+        }).toList();
+        _filteredParts = _allParts;
+      });
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error loading parts: $e', style: const TextStyle(color: Colors.white))),
+        );
+      }
     }
+  }
+
+  void _filterParts(String query) {
+    final settings = context.read<SettingsProvider>();
+    final isSinhala = settings.locale.languageCode == 'si';
+
+    setState(() {
+      _filteredParts = _allParts.where((part) {
+        final nameMatches = (isSinhala ? part.nameSi : part.nameEn).toLowerCase().contains(query.toLowerCase());
+        final codeMatches = part.code.toLowerCase().contains(query.toLowerCase());
+        return nameMatches || codeMatches;
+      }).toList();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final settings = context.watch<SettingsProvider>();
+    final isSinhala = settings.locale.languageCode == 'si';
+
     return Scaffold(
-      extendBodyBehindAppBar: true, // image under status bar
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Search', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
-        backgroundColor: Colors.black.withOpacity(0.8),
+        title: Text(l10n.search, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-        ),
       ),
       body: Stack(
         fit: StackFit.expand,
         children: [
           Image.asset('assets/bike.jpg', fit: BoxFit.cover),
-          Container(color: Colors.white.withOpacity(0.45)),
-          Column(
-            children: [
-              const SizedBox(height: 100), // space below transparent AppBar
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.85),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withValues(alpha: 0.8),
+                  Colors.black.withValues(alpha: 0.6),
+                ],
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: GlassContainer(
+                    opacity: 0.2,
+                    child: TextField(
+                      controller: _searchController,
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText: l10n.searchHint,
+                        hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
+                        prefixIcon: const Icon(Icons.search, color: Colors.white70),
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      ),
+                      onChanged: _filterParts,
                     ),
                   ),
-                  onChanged: _search,
                 ),
-              ),
-              Expanded(
-                child: _parts.isEmpty
-                    ? const Center(child: CircularProgressIndicator(color: Colors.white))
-                    : ListView.builder(
-                        padding: const EdgeInsets.all(12),
-                        itemCount: _filtered.length,
-                        itemBuilder: (_, i) {
-                          final p = _filtered[i];
-                          return Card(
-                            color: Colors.white.withOpacity(0.8),
-                            margin: const EdgeInsets.symmetric(vertical: 6),
-                            child: ListTile(
-                              leading: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                                decoration: BoxDecoration(
-                                  color: Colors.brown,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Text(
-                                  p.code,
-                                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                Expanded(
+                  child: _filteredParts.isEmpty
+                      ? Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.search_off, size: 64, color: Colors.white.withValues(alpha: 0.5)),
+                              const SizedBox(height: 16),
+                              Text(
+                                l10n.noPartsFound,
+                                style: const TextStyle(color: Colors.white, fontSize: 18),
+                              ),
+                            ],
+                          ),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          itemCount: _filteredParts.length,
+                          itemBuilder: (context, index) {
+                            final part = _filteredParts[index];
+                            final isFav = settings.isFavorite(part.code);
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 12),
+                              child: GlassContainer(
+                                opacity: 0.1,
+                                padding: const EdgeInsets.all(16),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(12),
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).primaryColor.withValues(alpha: 0.2),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(Icons.build, color: Theme.of(context).primaryColor),
+                                    ),
+                                    const SizedBox(width: 16),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            isSinhala ? part.nameSi : part.nameEn,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          const SizedBox(height: 4),
+                                          Text(
+                                            part.code,
+                                            style: TextStyle(
+                                              color: Theme.of(context).primaryColor,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(
+                                        isFav ? Icons.bookmark : Icons.bookmark_border,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                      onPressed: () {
+                                        settings.toggleFavorite(part.code);
+                                      },
+                                    ),
+                                  ],
                                 ),
                               ),
-                              title: Text(p.nameEn),
-                              subtitle: Text(p.nameSi),
-                              onTap: () => _jumpToPart(p),
-                            )
-                          );
-                        },
-                      ),
-              ),
-            ],
+                            );
+                          },
+                        ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

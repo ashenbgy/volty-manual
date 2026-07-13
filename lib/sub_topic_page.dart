@@ -1,118 +1,201 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:csv/csv.dart';
+import 'l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'providers/settings_provider.dart';
 import 'part.dart';
 import 'pdf_page.dart';
-import 'package:flutter/services.dart';
+import 'widgets/glass_container.dart';
 
 class SubTopicPage extends StatefulWidget {
-  final List<Part> children;
-  const SubTopicPage({required this.children, super.key});
+  const SubTopicPage({super.key});
 
   @override
   State<SubTopicPage> createState() => _SubTopicPageState();
 }
 
 class _SubTopicPageState extends State<SubTopicPage> {
-  late List<Part> _filtered;
+  List<Part> _allParts = [];
+  List<Part> _filteredParts = [];
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _filtered = widget.children;
+    _loadParts();
   }
 
-  void _search(String q) {
-    final query = q.toLowerCase();
+  Future<void> _loadParts() async {
+    try {
+      final rawData = await rootBundle.loadString('assets/parts.csv');
+      List<List<dynamic>> listData =
+          const CsvToListConverter().convert(rawData);
+      
+      setState(() {
+        _allParts = listData.skip(1).map((row) {
+          return Part.fromCsv(row);
+        }).toList();
+        _filteredParts = _allParts;
+      });
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error loading parts: $e', style: const TextStyle(color: Colors.white))),
+        );
+      }
+    }
+  }
+
+  void _filterParts(String query) {
+    final settings = context.read<SettingsProvider>();
+    final isSinhala = settings.locale.languageCode == 'si';
+
     setState(() {
-      _filtered = widget.children
-          .where((c) =>
-              c.nameEn.toLowerCase().contains(query) ||
-              c.nameSi.toLowerCase().contains(query) ||
-              c.code.toLowerCase().contains(query))
-          .toList();
+      _filteredParts = _allParts.where((part) {
+        final categoryMatches = (part.parentCode ?? '').toLowerCase().contains(query.toLowerCase());
+        final nameMatches = (isSinhala ? part.nameSi : part.nameEn).toLowerCase().contains(query.toLowerCase());
+        return categoryMatches || nameMatches;
+      }).toList();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final settings = context.watch<SettingsProvider>();
+    final isSinhala = settings.locale.languageCode == 'si';
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Select Sub Topic', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
-        backgroundColor: Colors.black.withOpacity(0.8),
+        title: Text(l10n.subTopics, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
-        systemOverlayStyle:
-            const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light),
       ),
       body: Stack(
         fit: StackFit.expand,
         children: [
           Image.asset('assets/bike.jpg', fit: BoxFit.cover),
-          Container(color: Colors.white.withOpacity(0.45)),
-          Column(
-            children: [
-              const SizedBox(height: 100), // space below app-bar
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.85),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withValues(alpha: 0.8),
+                  Colors.black.withValues(alpha: 0.6),
+                ],
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: GlassContainer(
+                    opacity: 0.2,
+                    child: TextField(
+                      controller: _searchController,
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText: l10n.searchSubTopics,
+                        hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
+                        prefixIcon: const Icon(Icons.search, color: Colors.white70),
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                      ),
+                      onChanged: _filterParts,
                     ),
                   ),
-                  onChanged: _search,
                 ),
-              ),
-              Expanded(
-                child: _filtered.isEmpty
-                    ? const Center(
-                        child: Text(
-                          'No matching topics',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                Expanded(
+                  child: _filteredParts.isEmpty
+                      ? Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.search_off, size: 64, color: Colors.white.withValues(alpha: 0.5)),
+                              const SizedBox(height: 16),
+                              Text(
+                                l10n.noMatchingTopics,
+                                style: const TextStyle(color: Colors.white, fontSize: 18),
+                              ),
+                            ],
+                          ),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          itemCount: _filteredParts.length,
+                          itemBuilder: (context, index) {
+                            final part = _filteredParts[index];
+                            final isFav = settings.isFavorite(part.code);
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 12),
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Navigate to specific page logic (dummy page 1 for now)
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const PdfPage(page: 1)));
+                                },
+                                child: GlassContainer(
+                                  opacity: 0.1,
+                                  padding: const EdgeInsets.all(16),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.all(12),
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context).primaryColor.withValues(alpha: 0.2),
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Icon(Icons.menu_book, color: Theme.of(context).primaryColor),
+                                      ),
+                                      const SizedBox(width: 16),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              part.parentCode ?? 'Topic',
+                                              style: TextStyle(
+                                                color: Theme.of(context).primaryColor,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              isSinhala ? part.nameSi : part.nameEn,
+                                              style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: Icon(
+                                          isFav ? Icons.bookmark : Icons.bookmark_border,
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                        onPressed: () {
+                                          settings.toggleFavorite(part.code);
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                      )
-                    : ListView.builder(
-                        padding: const EdgeInsets.all(12),
-                        itemCount: _filtered.length,
-                        itemBuilder: (_, i) {
-                          final c = _filtered[i];
-                          final pageNo = c.page;
-                          return Card(
-                            color: Colors.white.withOpacity(0.8),
-                            margin: const EdgeInsets.symmetric(vertical: 6),
-                            child: ListTile(
-                              leading: Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 6),
-                                decoration: BoxDecoration(
-                                  color: Colors.brown[300],
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Text(
-                                  c.code,
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              title: Text(c.nameEn),
-                              subtitle: Text(c.nameSi),
-                              trailing: Text('p. ${c.page}'),
-                              onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => PdfPage(page: pageNo),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

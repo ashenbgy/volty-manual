@@ -1,101 +1,166 @@
 import 'package:flutter/material.dart';
+import 'l10n/app_localizations.dart';
 import 'search_page.dart';
 import 'explore_page.dart';
 import 'about_page.dart';
-import 'package:flutter/services.dart';
+import 'favorites_page.dart';
+import 'settings_page.dart';
+import 'widgets/glass_container.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({super.key});
 
   @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-        // 1. make it see-through
-        backgroundColor: Colors.transparent,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-
-        // 2. left-aligned big headline
-        title: const Text(
-          'Bike Manual',
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
-        ),
-        centerTitle: false,
-
-        // 3. system-icon colour that works on your odometer image
-        iconTheme: const IconThemeData(color: Colors.white),
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-
-        // 4. optional pop-up menu (kebab) on the right
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: Text(l10n.appTitle, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
         actions: [
-          PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert, color: Colors.black),
-            color: Colors.brown[50],
-            onSelected: (val) {
-              switch (val) {
-                case 'explore':
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const ExplorePage()));
-                  break;
-                case 'search':
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SearchPage()));
-                  break;
-                case 'about':
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const AboutPage()));
-                  break;
-                case 'exit':
-                  SystemNavigator.pop(); // <-- closes the app
-                  break;
-              }
-            },
-            itemBuilder: (_) => [
-              const PopupMenuItem(value: 'explore', child: Text('Explore')),
-              const PopupMenuItem(value: 'search', child: Text('Search')),
-              const PopupMenuItem(value: 'about', child: Text('About')),
-              const PopupMenuItem(value: 'exit', child: Text('Exit')),
-            ],
+          IconButton(
+            icon: const Icon(Icons.info_outline, color: Colors.white),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutPage())),
           ),
-        ]
+        ],
       ),
-    body: Stack(
-      fit: StackFit.expand,
-      children: [
-        // background
-        Image.asset(
-          'assets/odometer.jpg',
-          fit: BoxFit.cover,
-        ),
-        // slight dark tint so buttons stay readable
-        Container(color: Colors.black.withOpacity(0.4)),
-        // buttons
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _menuButton(context, 'Explore', Icons.explore, const ExplorePage()),
-              const SizedBox(height: 24),
-              _menuButton(context, 'Search', Icons.search, const SearchPage()),
-              const SizedBox(height: 24),
-              _menuButton(context, 'About', Icons.info, const AboutPage()),
-            ],
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset('assets/bike.jpg', fit: BoxFit.cover),
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withValues(alpha: 0.8),
+                  Colors.black.withValues(alpha: 0.4),
+                  Colors.black.withValues(alpha: 0.9),
+                ],
+              ),
+            ),
           ),
-        ),
-      ],
-    ),
-  );
-}
+          SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.welcomeBack,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        l10n.whatToFind,
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          height: 1.2,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: GridView.count(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    childAspectRatio: 0.85,
+                    children: [
+                      _buildMenuCard(
+                        context,
+                        title: l10n.explore,
+                        subtitle: l10n.exploreSubtitle,
+                        icon: Icons.menu_book_rounded,
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ExplorePage())),
+                      ),
+                      _buildMenuCard(
+                        context,
+                        title: l10n.search,
+                        subtitle: l10n.searchSubtitle,
+                        icon: Icons.search_rounded,
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage())),
+                      ),
+                      _buildMenuCard(
+                        context,
+                        title: l10n.favorites,
+                        subtitle: l10n.favoritesSubtitle,
+                        icon: Icons.bookmark_border_rounded,
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const FavoritesPage())),
+                      ),
+                      _buildMenuCard(
+                        context,
+                        title: l10n.settings,
+                        subtitle: l10n.settingsSubtitle,
+                        icon: Icons.settings_rounded,
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage())),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
-  Widget _menuButton(BuildContext ctx, String label, IconData icon, Widget page) {
-  return ElevatedButton.icon(
-    icon: Icon(icon, size: 28),
-    label: Text(label, style: const TextStyle(fontSize: 20)),
-    style: ElevatedButton.styleFrom(
-      minimumSize: const Size(200, 60),
-      backgroundColor: Colors.white.withOpacity(0.85), // normal colour
-      foregroundColor: Colors.black,                   // normal text/icon
-      overlayColor: Colors.brown.withOpacity(0.8),     // splash / highlight
-    ),
-    onPressed: () => Navigator.push(ctx, MaterialPageRoute(builder: (_) => page)),
-  );
-}
+  Widget _buildMenuCard(BuildContext context, {required String title, required String subtitle, required IconData icon, required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: GlassContainer(
+        opacity: 0.15,
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor.withValues(alpha: 0.2),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(icon, color: Theme.of(context).primaryColor, size: 28),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
