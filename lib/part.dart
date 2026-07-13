@@ -4,9 +4,9 @@ class Part {
   final String? parentCode;
 
   Part.fromCsv(List<dynamic> row)
-      : code       = row[0] as String,
-        nameEn     = row[1] as String,
-        nameSi     = row[2] as String,
-        page       = int.parse(row[3].toString()),
-        parentCode = row[4].toString().isEmpty ? null : row[4] as String;
+      : code       = row.isNotEmpty ? row[0].toString() : '',
+        nameEn     = row.length > 1 ? row[1].toString() : '',
+        nameSi     = row.length > 2 ? row[2].toString() : '',
+        page       = row.length > 3 ? int.tryParse(row[3].toString()) ?? 1 : 1,
+        parentCode = row.length > 4 && row[4].toString().isNotEmpty ? row[4].toString() : null;
 }

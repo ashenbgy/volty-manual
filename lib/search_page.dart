@@ -29,7 +29,7 @@ class _SearchPageState extends State<SearchPage> {
     try {
       final rawData = await rootBundle.loadString('assets/parts.csv');
       List<List<dynamic>> listData =
-          const CsvToListConverter().convert(rawData);
+          const CsvToListConverter(eol: '\n').convert(rawData);
       
       setState(() {
         _allParts = listData.skip(1).map((row) {
