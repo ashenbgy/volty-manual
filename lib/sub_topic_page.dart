@@ -134,12 +134,12 @@ class _SubTopicPageState extends State<SubTopicPage> {
                             final isFav = settings.isFavorite(part.code);
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 12),
-                              child: GestureDetector(
-                                onTap: () {
-                                  // Navigate to specific page logic (dummy page 1 for now)
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const PdfPage(page: 1)));
-                                },
-                                child: GlassContainer(
+                                child: GestureDetector(
+                                  behavior: HitTestBehavior.opaque,
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => PdfPage(page: part.page)));
+                                  },
+                                  child: GlassContainer(
                                   opacity: 0.1,
                                   padding: const EdgeInsets.all(16),
                                   child: Row(

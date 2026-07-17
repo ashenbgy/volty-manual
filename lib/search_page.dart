@@ -5,6 +5,7 @@ import 'l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'providers/settings_provider.dart';
 import 'part.dart';
+import 'pdf_page.dart';
 import 'widgets/glass_container.dart';
 
 class SearchPage extends StatefulWidget {
@@ -133,9 +134,14 @@ class _SearchPageState extends State<SearchPage> {
                             final isFav = settings.isFavorite(part.code);
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 12),
-                              child: GlassContainer(
-                                opacity: 0.1,
-                                padding: const EdgeInsets.all(16),
+                              child: GestureDetector(
+                                behavior: HitTestBehavior.opaque,
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => PdfPage(page: part.page)));
+                                },
+                                child: GlassContainer(
+                                  opacity: 0.1,
+                                  padding: const EdgeInsets.all(16),
                                 child: Row(
                                   children: [
                                     Container(

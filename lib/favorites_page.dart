@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'l10n/app_localizations.dart';
 import 'providers/settings_provider.dart';
 import 'part.dart';
+import 'pdf_page.dart';
 import 'widgets/glass_container.dart';
 import 'package:flutter/services.dart';
 import 'package:csv/csv.dart';
@@ -98,8 +99,13 @@ class _FavoritesPageState extends State<FavoritesPage> {
                       final part = favoriteParts[index];
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 12),
-                        child: GlassContainer(
-                          padding: const EdgeInsets.all(16),
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => PdfPage(page: part.page)));
+                          },
+                          child: GlassContainer(
+                            padding: const EdgeInsets.all(16),
                           child: Row(
                             children: [
                               Container(
